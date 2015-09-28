@@ -59,3 +59,26 @@ RUN bash -l -c "chruby 2.2.2; gem install bundler --no-rdoc --no-ri"
 
 #bosh_cli
 RUN bash -l -c "chruby 2.2.2; gem install bosh_cli --no-rdoc --no-ri"
+
+#chefdk
+RUN \
+  wget -nv https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.8.0-1_amd64.deb -P /tmp && \
+  dpkg -i /tmp/chefdk_0.8.0-1_amd64.deb && \
+  rm -rf /tmp/*
+
+#vagrant
+RUN \
+  wget -nv https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb  -P /tmp && \
+  dpkg -i /tmp/vagrant_1.7.4_x86_64.deb && \
+  rm -rf /tmp/*
+RUN \
+  vagrant plugin install vagrant-aws       --plugin-version 0.6.0 && \
+  vagrant plugin install vagrant-berkshelf --plugin-version 4.0.4 && \
+  vagrant plugin install vagrant-omnibus   --plugin-version 1.4.1
+
+#packer
+RUN \
+  wget -nv https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip -P /tmp && \
+  cd /usr/local/bin && \
+  unzip /tmp/packer_0.8.6_linux_amd64.zip && \
+  rm /tmp/packer_0.8.6_linux_amd64.zip
