@@ -1,5 +1,5 @@
 # docker-cloudops-ci
-This Dockerfile creates https://hub.docker.com/r/cfcloudops/cloudops-ci/
+This Dockerfile creates https://hub.docker.com/r/cfcloudops/docker-cloudops-ci/
 
 # Automatic build:
 
