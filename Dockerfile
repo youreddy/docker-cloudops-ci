@@ -60,6 +60,11 @@ RUN bash -l -c "chruby 2.2.2; gem install bundler --no-rdoc --no-ri"
 #bosh_cli
 RUN bash -l -c "chruby 2.2.2; gem install bosh_cli --no-rdoc --no-ri"
 
+#aws cli
+RUN \
+  curl "https://bootstrap.pypa.io/get-pip.py" |python && \
+  pip install awscli
+
 #chefdk
 RUN \
   wget -nv https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.8.0-1_amd64.deb -P /tmp && \
