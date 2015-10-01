@@ -15,6 +15,7 @@ RUN apt-get install -y \
       expect \
       make \
       tree \
+      python-software-properties \
       language-pack-en; \
       apt-get clean
 
