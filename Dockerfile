@@ -13,6 +13,7 @@ RUN apt-get install -y \
       wget \
       curl \
       expect \
+      libmysqlclient-dev \
       make \
       tree \
       python-software-properties \
