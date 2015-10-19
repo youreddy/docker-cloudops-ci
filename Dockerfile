@@ -16,6 +16,7 @@ RUN apt-get install -y \
       libmysqlclient-dev \
       make \
       tree \
+      build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \ #for bosh-init
       python-software-properties \
       language-pack-en; \
       apt-get clean
@@ -89,3 +90,8 @@ RUN \
   cd /usr/local/bin && \
   unzip /tmp/packer_0.8.6_linux_amd64.zip && \
   rm /tmp/packer_0.8.6_linux_amd64.zip
+
+#bosh-init
+RUN \
+  wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.77-linux-amd64 -O /usr/local/bin/bosh-init && \
+  chmod +x /usr/local/bin/bosh-init
