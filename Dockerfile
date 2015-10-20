@@ -16,7 +16,7 @@ RUN apt-get install -y \
       libmysqlclient-dev \
       make \
       tree \
-      build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \ #for bosh-init
+      build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \
       python-software-properties \
       language-pack-en; \
       apt-get clean
