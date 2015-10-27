@@ -14,7 +14,6 @@ RUN apt-get install -y \
       curl \
       expect \
       libmysqlclient-dev \
-      make \
       tree \
       build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \
       python-software-properties \
