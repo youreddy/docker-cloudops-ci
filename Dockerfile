@@ -92,5 +92,5 @@ RUN \
 
 #bosh-init
 RUN \
-  wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.77-linux-amd64 -O /usr/local/bin/bosh-init && \
+  wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.80-linux-amd64 -O /usr/local/bin/bosh-init && \
   chmod +x /usr/local/bin/bosh-init
