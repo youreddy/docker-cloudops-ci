@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'bosh_cli'
-gem 'semantic'
+gem 'semantic', '~> 1.4', '>= 1.4.1'
