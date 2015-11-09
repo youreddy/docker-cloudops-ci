@@ -21,6 +21,7 @@ RUN apt-get install -y \
       apt-get clean
 
 ADD assets/config ~/.ssh/config
+ADD assets/Gemfile ~/Gemfile
 
 RUN \
   wget -nv http://stedolan.github.io/jq/download/linux64/jq -P /usr/local/bin && \
@@ -49,18 +50,14 @@ RUN ruby-install ruby 2.1.7 && \
 
 #Bundler
 RUN bash -l -c "chruby 2.1.7; gem install bundler --no-rdoc --no-ri"
-
-#bosh_cli
-RUN bash -l -c "chruby 2.1.7; gem install bosh_cli --no-rdoc --no-ri"
+RUN bash -l -c "chruby 2.1.7; pushd ~; bundle install; popd"
 
 #install ruby 2.2.2
 RUN ruby-install ruby 2.2.2
 
 #Bundler
 RUN bash -l -c "chruby 2.2.2; gem install bundler --no-rdoc --no-ri"
-
-#bosh_cli
-RUN bash -l -c "chruby 2.2.2; gem install bosh_cli --no-rdoc --no-ri"
+RUN bash -l -c "chruby 2.2.2; pushd ~; bundle install; popd"
 
 #aws cli
 RUN \
