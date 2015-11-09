@@ -50,6 +50,7 @@ RUN ruby-install ruby 2.1.7 && \
 
 #Bundler
 RUN bash -l -c "chruby 2.1.7; gem install bundler --no-rdoc --no-ri"
+RUN bash -l -c "chruby 2.1.7; gem install bosh_cli --no-rdoc --no-ri"
 RUN bash -l -c "chruby 2.1.7; pushd ~; bundle install; popd"
 
 #install ruby 2.2.2
@@ -57,6 +58,7 @@ RUN ruby-install ruby 2.2.2
 
 #Bundler
 RUN bash -l -c "chruby 2.2.2; gem install bundler --no-rdoc --no-ri"
+RUN bash -l -c "chruby 2.1.7; gem install bosh_cli --no-rdoc --no-ri"
 RUN bash -l -c "chruby 2.2.2; pushd ~; bundle install; popd"
 
 #aws cli
