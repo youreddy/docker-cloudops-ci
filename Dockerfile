@@ -16,6 +16,7 @@ RUN apt-get install -y \
       libmysqlclient-dev \
       tree \
       cmake \
+      pkg-config \
       build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \
       python-software-properties \
       language-pack-en; \
