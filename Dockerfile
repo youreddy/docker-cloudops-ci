@@ -75,7 +75,7 @@ RUN \
 RUN \
   wget -nv https://github.com/cloudfoundry-incubator/spiff/releases/download/v1.0.7/spiff_linux_amd64.zip -P /tmp && \
   unzip /tmp/spiff_linux_amd64.zip -d /tmp/ && \
-  cp /tmp/spiff /usr/local/bin && \
+  cp /tmp/spiff /usr/local/bin
 
 #vagrant
 RUN \
