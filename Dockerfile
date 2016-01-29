@@ -71,6 +71,12 @@ RUN \
   dpkg -i /tmp/chefdk_0.8.0-1_amd64.deb && \
   rm -rf /tmp/*
 
+# spiff
+RUN \
+  wget https://github.com/cloudfoundry-incubator/spiff/releases/download/v1.0.7/spiff_linux_amd64.zip -P /tmp && \
+  unzip /tmp/spiff_linux_amd64.zip && \
+  cp /tmp/spiff /usr/local/bin && \
+
 #vagrant
 RUN \
   wget -nv https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb  -P /tmp && \
