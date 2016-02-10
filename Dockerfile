@@ -90,7 +90,7 @@ RUN \
 
 #packer
 RUN \
-  wget -nv https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip -P /tmp && \
+  wget -nv https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip -P /tmp && \
   cd /usr/local/bin && \
   unzip /tmp/packer_0.8.6_linux_amd64.zip && \
   rm /tmp/packer_0.8.6_linux_amd64.zip
