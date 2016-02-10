@@ -80,7 +80,7 @@ RUN \
 
 #vagrant
 RUN \
-  wget -nv https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb  -P /tmp && \
+  wget -nv https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb  -P /tmp && \
   dpkg -i /tmp/vagrant_1.7.4_x86_64.deb && \
   rm -rf /tmp/*
 RUN \
