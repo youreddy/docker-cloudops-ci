@@ -55,10 +55,11 @@ RUN bash -l -c "chruby 2.1.7; gem install bosh_cli --no-rdoc --no-ri"
 
 #install ruby 2.2.2
 RUN ruby-install ruby 2.2.2
+RUN bash -l -c "chruby 2.2.2; gem install bundler bosh_cli --no-rdoc --no-ri"
 
-#Bundler
-RUN bash -l -c "chruby 2.2.2; gem install bundler --no-rdoc --no-ri"
-RUN bash -l -c "chruby 2.1.7; gem install bosh_cli --no-rdoc --no-ri"
+#install ruby 2.2.4
+RUN ruby-install ruby 2.2.4
+RUN bash -l -c "chruby 2.2.4; gem install bundler bosh_cli --no-rdoc --no-ri"
 
 #aws cli
 RUN \
