@@ -25,7 +25,7 @@ RUN apt-get install -y \
 ADD assets/config ~/.ssh/config
 
 RUN \
-  wget -nv http://stedolan.github.io/jq/download/linux64/jq -P /usr/local/bin && \
+  wget -nv https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64  -O /usr/local/bin/jq && \
   chmod +x /usr/local/bin/jq
 
 # chruby
