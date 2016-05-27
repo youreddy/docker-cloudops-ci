@@ -61,6 +61,17 @@ RUN bash -l -c "chruby 2.2.2; gem install bundler bosh_cli --no-rdoc --no-ri"
 RUN ruby-install ruby 2.2.4
 RUN bash -l -c "chruby 2.2.4; gem install bundler bosh_cli --no-rdoc --no-ri"
 
+# Install Bundle for each version of ruby
+RUN \
+  bash -l -c ' \
+  ruby_version_array=($(chruby | sed "s/\*//" | tr \\n \ )); \
+  for i in "${ruby_version_array[@]}"; \
+  do \
+    chruby $i; \
+    gem install bundler; \
+    gem install nokogiri; \
+  done'
+
 #aws cli
 RUN \
   curl "https://bootstrap.pypa.io/get-pip.py" |python && \
