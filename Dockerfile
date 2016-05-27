@@ -49,27 +49,20 @@ RUN ruby-install ruby 2.1.7 && \
   cp /etc/profile.d/chruby.sh /etc/profile.d/chruby-with-default-ruby.sh && \
   echo "chruby 2.1.7" >> /etc/profile.d/chruby-with-default-ruby.sh
 
-#Bundler
-RUN bash -l -c "chruby 2.1.7; gem install bundler --no-rdoc --no-ri"
-RUN bash -l -c "chruby 2.1.7; gem install bosh_cli --no-rdoc --no-ri"
-
 #install ruby 2.2.2
 RUN ruby-install ruby 2.2.2
-RUN bash -l -c "chruby 2.2.2; gem install bundler bosh_cli --no-rdoc --no-ri"
 
 #install ruby 2.2.4
 RUN ruby-install ruby 2.2.4
-RUN bash -l -c "chruby 2.2.4; gem install bundler bosh_cli --no-rdoc --no-ri"
 
-# Install Bundle for each version of ruby
+# Install needed gems for each version of ruby
 RUN \
   bash -l -c ' \
   ruby_version_array=($(chruby | sed "s/\*//" | tr \\n \ )); \
   for i in "${ruby_version_array[@]}"; \
   do \
     chruby $i; \
-    gem install bundler; \
-    gem install nokogiri; \
+    gem install bundler bosh_cli nokogiri --no-rdoc --no-ri; \
   done'
 
 #aws cli
