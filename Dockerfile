@@ -19,7 +19,9 @@ RUN apt-get install -y \
       pkg-config \
       build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \
       python-software-properties \
-      language-pack-en; \
+      language-pack-en \
+      mysql-client \
+      ; \
       apt-get clean
 
 ADD assets/config ~/.ssh/config
@@ -54,6 +56,9 @@ RUN ruby-install ruby 2.2.2
 
 #install ruby 2.2.4
 RUN ruby-install ruby 2.2.4
+
+#install ruby 2.3.1
+RUN ruby-install ruby 2.3.1
 
 # Install needed gems for each version of ruby
 RUN \
