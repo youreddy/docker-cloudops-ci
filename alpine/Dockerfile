@@ -7,13 +7,17 @@ RUN echo "gem : --no-ri --no-rdoc" > ~/.gemrc && \
     apk add \
     bash \
     curl \
+    gcc \
     glib \
     git \
     ncurses \
     openssl \
+    make \
     mariadb-libs \
+    musl-dev \
     readline \
     ruby \
+    ruby-dev \
     ruby-io-console \
     libxslt \
     libpq \
@@ -29,7 +33,7 @@ RUN echo "gem : --no-ri --no-rdoc" > ~/.gemrc && \
 
 RUN curl -sS  https://bootstrap.pypa.io/get-pip.py | python
 RUN pip install awscli
-RUN gem install bundler bosh_cli
+RUN gem install bundler json bosh_cli
 RUN bundle config build.nokogiri --use-system-libraries
 
 RUN \
