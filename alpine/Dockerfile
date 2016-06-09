@@ -19,6 +19,7 @@ RUN echo "gem : --no-ri --no-rdoc" > ~/.gemrc && \
     ruby \
     ruby-dev \
     ruby-io-console \
+    tar \
     libxslt \
     libpq \
     libevent \
