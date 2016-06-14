@@ -1,24 +1,26 @@
 # docker-cloudops-ci
 This Dockerfile creates https://hub.docker.com/r/cfcloudops/docker-cloudops-ci/
 
-# Automatic build:
+# Apline
+The docker file in the alpine folder builds this image:
+https://hub.docker.com/r/cfcloudops/cloudops-minimal/
 
-push changes to the Dockerfile. 
+# Docker bosh-init
+This dockerfile creates an image for bosh-init located here
+https://hub.docker.com/r/cfcloudops/cloudops-bosh-init/
 
-# Manual build
-- [ ] confirm you want to do this. This will take forever. 
-- [ ] `vagrant up`
-- [ ] Seriously? You want to do this manually?
-- [ ] 
+
+Anything workstation that uses construct does not need the vagrant file.  Simply type your docker commands from any location at any time.
+
+To build tag and push:
 
 ```
-    vagrant ssh
-    cd /vagrant
+    docker login
     docker build .
     # go take a coffee break
     docker tag <image> cfcloudops/docker-cloudops-ci:0.x.y
     docker tag <image> cfcloudops/docker-cloudops-ci:latest
-    docker login
     docker push cfcloudops/docker-cloudops-ci
 ```
 
+note: you can find the image from the command `docker images` the most recent build is probably your image
