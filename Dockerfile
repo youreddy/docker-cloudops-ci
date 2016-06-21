@@ -28,6 +28,7 @@ RUN apt-get install -y \
       python-software-properties \
       language-pack-en \
       mysql-client \
+      wget \
       ; \
       apt-get clean
 
