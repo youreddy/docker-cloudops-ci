@@ -97,7 +97,9 @@ RUN \
   dpkg -i /tmp/vagrant_1.8.4_x86_64.deb && \
   rm -rf /tmp/*
 RUN \
-  vagrant plugin install vagrant-aws       --plugin-version 0.7.0
+  vagrant plugin install vagrant-aws       --plugin-version 0.7.0 && \
+  vagrant plugin install vagrant-berkshelf --plugin-version 4.1.0 && \
+  vagrant plugin install vagrant-omnibus   --plugin-version 1.4.1
 
 #bosh-init
 RUN \
