@@ -8,27 +8,19 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update; apt-get -y upgrade; apt-get clean
 
 RUN apt-get install -y \
-      build-essential \
-      curl \
-      cmake \
-      expect \
       git \
       unzip \
-      pkg-config \
+      wget \
+      curl \
+      expect \
+      libmysqlclient-dev \
       tree \
-      language-pack-en \
-      libxslt-dev \
-      libxml2-dev \
-      libssl-dev \
-      libreadline6 \
-      libreadline6-dev \
-      libyaml-dev \
-      openssl \
-      python \
+      cmake \
+      pkg-config \
+      build-essential zlibc zlib1g-dev ruby ruby-dev openssl libxslt-dev libxml2-dev libssl-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3 \
       python-software-properties \
       language-pack-en \
       mysql-client \
-      wget \
       ; \
       apt-get clean
 
@@ -49,8 +41,8 @@ RUN mkdir /tmp/chruby && \
 # ruby-install
 RUN mkdir /tmp/ruby-install && \
   cd /tmp && \
-  curl https://codeload.github.com/postmodern/ruby-install/tar.gz/v0.6.0 | tar -xz && \
-  cd /tmp/ruby-install-0.6.0 && \
+  curl https://codeload.github.com/postmodern/ruby-install/tar.gz/v0.5.0 | tar -xz && \
+  cd /tmp/ruby-install-0.5.0 && \
   sudo make install && \
   rm -rf /tmp/ruby-install
 
@@ -83,6 +75,11 @@ RUN \
   curl "https://bootstrap.pypa.io/get-pip.py" |python && \
   pip install awscli
 
+#chefdk
+RUN \
+  wget -nv https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.8.0-1_amd64.deb -P /tmp && \
+  dpkg -i /tmp/chefdk_0.8.0-1_amd64.deb && \
+  rm -rf /tmp/*
 
 # spiff
 RUN \
@@ -90,18 +87,24 @@ RUN \
   unzip /tmp/spiff_linux_amd64.zip -d /tmp/ && \
   cp /tmp/spiff /usr/local/bin
 
-
 #vagrant
 RUN \
-  wget -nv https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb  -P /tmp && \
-  dpkg -i /tmp/vagrant_1.8.4_x86_64.deb && \
+  wget -nv https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb  -P /tmp && \
+  dpkg -i /tmp/vagrant_1.7.4_x86_64.deb && \
   rm -rf /tmp/*
 RUN \
-  vagrant plugin install vagrant-aws       --plugin-version 0.7.0 && \
-  vagrant plugin install vagrant-berkshelf --plugin-version 4.1.0 && \
+  vagrant plugin install vagrant-aws       --plugin-version 0.6.0 && \
+  vagrant plugin install vagrant-berkshelf --plugin-version 4.0.4 && \
   vagrant plugin install vagrant-omnibus   --plugin-version 1.4.1
+
+#packer
+RUN \
+  wget -nv https://releases.hashicorp.com/packer/0.8.6/packer_0.8.6_linux_amd64.zip -P /tmp && \
+  cd /usr/local/bin && \
+  unzip /tmp/packer_0.8.6_linux_amd64.zip && \
+  rm /tmp/packer_0.8.6_linux_amd64.zip
 
 #bosh-init
 RUN \
-  wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.92-linux-amd64 -O /usr/local/bin/bosh-init && \
+  wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.80-linux-amd64 -O /usr/local/bin/bosh-init && \
   chmod +x /usr/local/bin/bosh-init
