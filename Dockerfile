@@ -85,6 +85,14 @@ RUN \
   cp /tmp/spiff /usr/local/bin
 
 
+#vagrant
+RUN \
+  wget -nv https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb  -P /tmp && \
+  dpkg -i /tmp/vagrant_1.8.4_x86_64.deb && \
+  rm -rf /tmp/*
+RUN \
+  vagrant plugin install vagrant-aws       --plugin-version 0.7.0
+
 #bosh-init
 RUN \
   wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.92-linux-amd64 -O /usr/local/bin/bosh-init && \
