@@ -52,9 +52,12 @@ RUN mkdir /tmp/chruby && \
   ruby-install ruby 2.1.7 && \
   cp /etc/profile.d/chruby.sh /etc/profile.d/chruby-with-default-ruby.sh && \
   echo "chruby 2.1.7" >> /etc/profile.d/chruby-with-default-ruby.sh; \
-  ruby-install ruby 2.2.2 && \
-  ruby-install ruby 2.2.4 && \
-  ruby-install ruby 2.3.1 && \
+
+RUN ruby-install ruby 2.2.2
+
+RUN ruby-install ruby 2.2.5
+RUN ruby-install ruby 2.3.1
+RUN \
   bash -l -c ' \
   ruby_version_array=($(chruby | sed "s/\*//" | tr \\n \ )); \
   for i in "${ruby_version_array[@]}"; \
