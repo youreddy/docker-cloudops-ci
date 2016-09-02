@@ -48,7 +48,7 @@ RUN mkdir /tmp/chruby && \
   curl https://codeload.github.com/postmodern/ruby-install/tar.gz/v0.6.0 | tar -xz && \
   cd /tmp/ruby-install-0.6.0 && \
   sudo make install && \
-  rm -rf /tmp/ruby-install; \
+  rm -rf /tmp/ruby-install
 
 RUN ruby-install ruby 2.2.5
 RUN ruby-install ruby 2.3.1
