@@ -79,3 +79,5 @@ RUN \
   vagrant plugin install vagrant-omnibus   --plugin-version 1.4.1; \
   wget -nv https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.92-linux-amd64 -O /usr/local/bin/bosh-init && \
   chmod +x /usr/local/bin/bosh-init
+
+RUN echo "chruby 2.3.1" >> /etc/profile.d/chruby-with-default-ruby.sh
