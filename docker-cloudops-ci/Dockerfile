@@ -49,11 +49,6 @@ RUN mkdir /tmp/chruby && \
   cd /tmp/ruby-install-0.6.0 && \
   sudo make install && \
   rm -rf /tmp/ruby-install; \
-  ruby-install ruby 2.1.7 && \
-  cp /etc/profile.d/chruby.sh /etc/profile.d/chruby-with-default-ruby.sh && \
-  echo "chruby 2.1.7" >> /etc/profile.d/chruby-with-default-ruby.sh; \
-
-RUN ruby-install ruby 2.2.2
 
 RUN ruby-install ruby 2.2.5
 RUN ruby-install ruby 2.3.1
