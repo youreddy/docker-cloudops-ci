@@ -85,4 +85,5 @@ RUN \
   mv cf /usr/local/bin && \
   rm cf-cli_6.22.1_linux_x86-64.tgz
 
-RUN echo "chruby 2.3.1" >> /etc/profile.d/chruby-with-default-ruby.sh
+RUN cp /etc/profile.d/chruby.sh /etc/profile.d/chruby-with-default-ruby.sh && \
+  echo "chruby 2.3.1" >> /etc/profile.d/chruby-with-default-ruby.sh
