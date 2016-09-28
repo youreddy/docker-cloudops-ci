@@ -80,9 +80,9 @@ RUN \
 
 RUN \
   wget https://s3-us-west-1.amazonaws.com/cf-cli-releases/releases/v6.22.1/cf-cli_6.22.1_linux_x86-64.tgz && \
-  tar xzf cf-linux-amd64.tgz && \
+  tar xzf cf-cli_6.22.1_linux_x86-64.tgz && \
   chmod +x cf && \
   mv cf /usr/local/bin && \
-  rm cf-linux-amd64.tgz
+  rm cf-cli_6.22.1_linux_x86-64.tgz
 
 RUN echo "chruby 2.3.1" >> /etc/profile.d/chruby-with-default-ruby.sh
