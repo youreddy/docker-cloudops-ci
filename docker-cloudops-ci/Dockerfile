@@ -87,3 +87,6 @@ RUN \
 
 RUN cp /etc/profile.d/chruby.sh /etc/profile.d/chruby-with-default-ruby.sh && \
   echo "chruby 2.3.1" >> /etc/profile.d/chruby-with-default-ruby.sh
+
+RUN wget https://github.com/pivotal-cf/om/releases/download/0.16.0/om-linux -O /usr/local/bin/om && \
+  chmod +x /usr/local/bin/om
